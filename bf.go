@@ -120,6 +120,15 @@ func execute_bf(program []Instruction) {
 	}
 }
 
+func RunBF(fileContents []byte) {
+	program, err := compile_bf(string(fileContents))
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	execute_bf(program)
+}
+
 func main() {
 	args := os.Args
 	if len(args) != 2 {
